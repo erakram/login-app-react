@@ -3,8 +3,9 @@ import { Button } from 'rebass';
 import firebase from './config/fbConfig';
 const logOutUser = () => {
  firebase.auth().signOut();
+ console.log('Login Success')
 };
-const LogOut = () => {
- return <Button onClick={logOutUser} children="Log Out" />;
+const Logout = () => {
+ return <Button className="btn btn-warning" onClick={logOutUser} children="Log Out" />;
 };
 export default Logout;

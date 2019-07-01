@@ -1,6 +1,6 @@
 // import React from 'react';
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 // import { BrowserRouter, Switch, Route } from 'react-router-dom'
 // import Login from './Login'
@@ -10,21 +10,19 @@ import firebase from './config/fbConfig';
 class App extends Component {
 state = {
   authenticated: false,
-}
+};
 componentDidMount() {
   firebase.auth().onAuthStateChanged((authenticated) => {
-    authenticated
-      ? this.setState(() => ({
+    authenticated ? this.setState(() => ({
           authenticated: true,
-        }))
-      : this.setState(() => ({
+        })): this.setState(() => ({
           authenticated: false,
         }));
   });
 }
 render() {
   return <Navigation authenticated={this.state.authenticated} />;
-}
+  }
 }
 
 
