@@ -19,32 +19,37 @@ class Login extends Component {
         e.preventDefault();
         const { email, password } = this.state;
         firebase.auth().signInWithEmailAndPassword(email, password).then((user) => {
-                this.props.history.push('/dashboard');
+                this.props.history.push('/');
                 console.log('Login Success')
             })
             .catch ((error) => {
                 this.setState({ error: error });
                 console.log('Error')
             })
+        // fetch('localhost:8080/check_user/username/password').then((response) => {
+        //     this.props.history.push('/');
+        // })
         console.log(this.state);
     }
     render() {
         return (
             <div className="container">
-                <form onSubmit= {this.handleSubmit} className="white">
-                    <h5 className="grey-text text-darken-3">Login Form</h5>
-                    <div className="input-field">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" id="email" onChange={this.handleChange}></input>
-                    </div>
-                    <div className="input-field">
-                        <label htmlFor="password">Password</label>
-                        <input type="password" id="password" onChange={this.handleChange}></input>
-                    </div>
-                    <div className="input-field">
-                        <button className="btn pink lighten-1 z-depth-0">Login</button>
-                    </div>
-                </form>
+                <div className="">
+                    <form onSubmit= {this.handleSubmit} className="white">
+                        <h5 className="grey-text text-darken-3">Login Form</h5>
+                        <div className="input-field">
+                            <label htmlFor="email">Email</label>
+                            <input type="email" id="email" onChange={this.handleChange}></input>
+                        </div>
+                        <div className="input-field">
+                            <label htmlFor="password">Password</label>
+                            <input type="password" id="password" onChange={this.handleChange}></input>
+                        </div>
+                        <div className="input-field">
+                            <button className="btn pink lighten-1 z-depth-0">Login</button>
+                        </div>
+                    </form>
+                </div>
             </div>
         )
     }

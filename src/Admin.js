@@ -2,8 +2,9 @@
 import React, { Component } from 'react'
 import Notifications from './Notifications'
 import ProjectList from './projects/ProjectList'
+import Blogs from './Blogs'
 
-class Dashboard extends Component {
+class Admin extends Component {
   render() {
     return (
       <div className="container">
@@ -12,11 +13,12 @@ class Dashboard extends Component {
             <ProjectList />
           </div>
           <div className="col s12 m5 offset-m1">
-            <Notifications /> 
+            {/* <Notifications />  */}
+            <Blogs />
           </div>
         </div>
       </div>
     )
   }
 }
-export default Dashboard;
+export default Admin;
