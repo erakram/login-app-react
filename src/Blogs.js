@@ -45,7 +45,7 @@ class Blogs extends Component {
                     console.log('Title', data[0].title);
                     console.log('Title', data[1].title);
                     console.log('Title', data[2].title);
-                    var b = data[0].title;
+                    // var b = data[0].title;
 
                 }, (ex) => {
                     this.setState({
