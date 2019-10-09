@@ -1,12 +1,26 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Popup from "reactjs-popup";
+import '../src/App.css';
 
 class Admin extends Component {
+  
   state = {
     users : [],
-    userLength : null
+    userLength : null,
+    name: '',
+    age: '',
+    gender: '',
+    email: '',
+    mobile: '',
+    designation: ''
     
   };
 
+  handleChange = (e) => {
+    this.setState({
+        [e.target.id]: e.target.value
+    })
+  }
   componentDidMount() {
     var url = 'http://localhost:8080/api/v1/show_users';
         console.log(url);
@@ -46,7 +60,7 @@ class Admin extends Component {
             },
           }).then(res => res.json())
           .then((data)=> {
-           this.props.history.push('/admin');
+           this.props.history.push('/');
           console.log("Deleted")
           console.log(data);
           })
@@ -55,6 +69,40 @@ class Admin extends Component {
                        console.log('Error')
                    })
       
+  }
+
+  handleUpdate = (e) => {
+    e.preventDefault();
+    console.log("Update User");
+    console.log(e.target.getAttribute('id'));
+    var userId = e.target.getAttribute('id');
+    var url = 'http://localhost:8080/api/v1/update_user/' +userId;
+    console.log(url);
+    fetch(url, {
+            method: 'PUT',
+            Origin: 'http://localhost:8080',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+           body: JSON.stringify( {
+        name: this.state.name,    
+        age: this.state.age,
+        gender: this.state.gender,
+        email: this.state.email,
+        mobile: this.state.mobile,
+        designation: this.state.designation
+   })
+       }).then(res => res.json())
+       .then((data)=> {
+        console.log("Updated");
+        this.props.history.push('/');
+        
+       })
+       .catch ((error) => {
+                    this.setState({ error: error });
+                    console.log('Error')
+                })
   }
 
   render() {
@@ -77,9 +125,46 @@ class Admin extends Component {
             <button className="btn red" id={user._id} onClick={this.handleDelete}>
               Delete
             </button>&nbsp;
-            <button className="btn grey">
+            {/* <button className="btn grey" id={user._id} onClick={this.togglePopup.bind(this)}> */}
+            {/* <button className="btn grey" id={user._id} onClick={this.handleUpdate}>
               Update
-            </button>
+            </button> */}
+            <Popup trigger={<button className="btn grey">Update</button>} position="right center">
+              <div className="popup">
+                <div className="container popup_class">
+                  <form className="white formPadding">
+                      <h5 className="grey-text text-darken-3">Update User</h5>
+                      <div className="input-field">
+                          <label htmlFor="name">Name</label>
+                          <input type="text" id="name" onChange={this.handleChange}></input>
+                      </div>
+                      <div className="input-field">
+                          <label htmlFor="age">Age</label>
+                          <input type="number" id="age" onChange={this.handleChange}></input>
+                      </div>
+                      <div className="input-field">
+                          <label htmlFor="gender">Gender</label>
+                          <input type="text" id="gender" onChange={this.handleChange}></input>
+                      </div>
+                      <div className="input-field">
+                          <label htmlFor="email">Email</label>
+                          <input type="email" id="email" onChange={this.handleChange}></input>
+                      </div>
+                      <div className="input-field">
+                          <label htmlFor="mobile">Mobile Number</label>
+                          <input type="text" id="mobile" onChange={this.handleChange}></input>
+                      </div>
+                      <div className="input-field">
+                          <label htmlFor="designation">Designation</label>
+                          <input type="text" id="designation" onChange={this.handleChange}></input>
+                      </div>
+                      <div className="input-field">
+                          <button className="btn pink lighten-1 z-depth-0" id={user._id} onClick={this.handleUpdate}>Update</button>
+                      </div>
+                  </form>
+                </div>
+              </div>
+            </Popup>
           </div>
         </div>
       )
