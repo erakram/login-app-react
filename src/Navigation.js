@@ -17,7 +17,7 @@ class Navigation extends Component {
      <Router>
        <nav className="nav-wrapper grey darken-3">
          <div className="container">
-           <Link to="/" className="brand-logo">Tech</Link>
+           <Link to="/" className="brand-logo">Aladdin's Tech</Link>
            <ul className="right">
            {this.props.authenticated ? (
             <span>

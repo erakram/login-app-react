@@ -33,7 +33,8 @@ class Login extends Component {
     }
     render() {
         return (
-            <div className="container">
+            <div className="container"><br/>
+                <h1 className="center">Welcome to API integration project with React JS</h1>
                 <br/>
                 <div className="center">
                     <form onSubmit= {this.handleSubmit} className="white loginForm">
@@ -49,7 +50,7 @@ class Login extends Component {
                         <div className="input-field">
                             <button className="btn pink lighten-1 z-depth-0">Login</button>
                         </div>
-                    </form>
+                    </form><br/><br/>
                 </div>
             </div>
         )
