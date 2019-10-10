@@ -9,7 +9,8 @@ import Admin from './Admin';
 import ProtectedRoute from './ProtectedRoute';
 import Logout from './Logout';
 import ProjectDetails from './projects/ProjectDetails'
-import CreateProject from './projects/CreateProject'
+// import CreateProject from './projects/CreateProject'
+import AddUser from './Adduser'
 class Navigation extends Component {
  render() {
    return (
@@ -21,8 +22,9 @@ class Navigation extends Component {
            {this.props.authenticated ? (
             <span>
              <li><NavLink to="/dashboard">Dashboard</NavLink></li>
-             <li><NavLink to="/create">Create Project</NavLink></li>
+             {/* <li><NavLink to="/create">Create Project</NavLink></li> */}
              <li><NavLink to="/admin">Admin</NavLink></li>
+             <li><NavLink to="/adduser">New User</NavLink></li>
              <Logout />
             </span>
            ) : (
@@ -93,9 +95,11 @@ class Navigation extends Component {
             <Route authenticated={this.props.authenticated} path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route path="/dashboard/:id" component= {ProjectDetails} />
-            <Route path="/create" component= {CreateProject} />
+            {/* <Route path="/create" component= {CreateProject} /> */}
+            {/* <ProtectedRoute authenticated={this.props.authenticated} path="/create" component={CreateProject} /> */}
             <ProtectedRoute authenticated={this.props.authenticated} path="/dashboard" component={Dashboard} />
             <ProtectedRoute authenticated={this.props.authenticated} path="/admin" component={Admin} />
+            <ProtectedRoute authenticated={this.props.authenticated} path="/adduser" component={AddUser} />
           </Switch>
        {/* </div> */}
      </Router>

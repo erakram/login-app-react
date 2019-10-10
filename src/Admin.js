@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Popup from "reactjs-popup";
 import '../src/App.css';
+// import { useAlert } from 'react-alert'
+
 
 class Admin extends Component {
   
@@ -15,6 +17,8 @@ class Admin extends Component {
     designation: ''
     
   };
+
+  
 
   handleChange = (e) => {
     this.setState({
@@ -60,7 +64,8 @@ class Admin extends Component {
             },
           }).then(res => res.json())
           .then((data)=> {
-           this.props.history.push('/');
+          alert("User Deleted");
+          this.props.history.push('/');
           console.log("Deleted")
           console.log(data);
           })
@@ -95,8 +100,11 @@ class Admin extends Component {
    })
        }).then(res => res.json())
        .then((data)=> {
+        alert("User Updated");
+        window.location.reload();
+
         console.log("Updated");
-        this.props.history.push('/');
+        // this.props.history.push('/');
         
        })
        .catch ((error) => {
@@ -104,6 +112,7 @@ class Admin extends Component {
                     console.log('Error')
                 })
   }
+  // const alert = useAlert()
 
   render() {
   const {users} = this.state
@@ -122,6 +131,9 @@ class Admin extends Component {
             <p>Designation: {user.contact.designation}</p>
           </div>
           <div className="center">
+          {/* <button onClick={() => {useAlert().show('Oh look, an alert!')}}>
+              Show Alert
+          </button> */}
             <button className="btn red" id={user._id} onClick={this.handleDelete}>
               Delete
             </button>&nbsp;

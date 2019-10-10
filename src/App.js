@@ -7,6 +7,7 @@ import './App.css';
 // import Signup from './Signup'
 import Navigation from './Navigation';
 import firebase from './config/fbConfig';
+import Footer from './Footer';
 class App extends Component {
 state = {
   authenticated: false,
@@ -21,7 +22,13 @@ componentDidMount() {
   });
 }
 render() {
-  return <Navigation authenticated={this.state.authenticated} />;
+  return (
+      <div>
+        <Navigation authenticated={this.state.authenticated} />
+        {/* <main></main> */}
+        <Footer />
+      </div>
+    );
   }
 }
 
