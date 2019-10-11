@@ -190,7 +190,7 @@ class Admin extends Component {
         <div className="row">
           <div className="col s12 m12">
             <div className="">
-              <h3 className="center">User List</h3>
+              <h3 className="center">List of All Users</h3>
               {userList}
             </div>
           </div>
