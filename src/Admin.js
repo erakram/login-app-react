@@ -26,7 +26,7 @@ class Admin extends Component {
     })
   }
   componentDidMount() {
-    var url = 'http://localhost:8080/api/v1/show_users';
+    var url = 'https://nodeapi-mongo-react.herokuapp.com/api/v1/show_users';
         console.log(url);
         fetch(url)
         .then(response => {
@@ -51,12 +51,12 @@ class Admin extends Component {
     console.log(e.target.getAttribute('id'));
     var userId = e.target.getAttribute('id');
     console.log(userId)
-    var url = 'http://localhost:8080/api/v1/delete_user/' +userId;
+    var url = 'https://nodeapi-mongo-react.herokuapp.com/api/v1/delete_user/' +userId;
     console.log(url);
     e.preventDefault();
         fetch(url, {
             method: 'DELETE',
-            Origin: 'http://localhost:8080',
+            Origin: 'https://nodeapi-mongo-react.herokuapp.com/',
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json'
@@ -81,11 +81,11 @@ class Admin extends Component {
     console.log("Update User");
     console.log(e.target.getAttribute('id'));
     var userId = e.target.getAttribute('id');
-    var url = 'http://localhost:8080/api/v1/update_user/' +userId;
+    var url = 'https://nodeapi-mongo-react.herokuapp.com/api/v1/update_user/' +userId;
     console.log(url);
     fetch(url, {
             method: 'PUT',
-            Origin: 'http://localhost:8080',
+            Origin: 'https://nodeapi-mongo-react.herokuapp.com/',
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json'

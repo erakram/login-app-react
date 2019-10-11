@@ -21,13 +21,13 @@ class Adduser extends Component {
     handleSubmit = (e) => {
         //alert('A list was submitted: ' + this.state.formvalue);
         e.preventDefault();
-        fetch('http://localhost:8080/api/v1/create_user', {
+        fetch('https://nodeapi-mongo-react.herokuapp.com/api/v1/create_user', {
             method: 'POST',
-            Origin: 'http://localhost:8080',
+            Origin: 'https://nodeapi-mongo-react.herokuapp.com/',
             headers: {
               'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            //   'Access-Control-Allow-Origin': '*'
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
             },
            body: JSON.stringify( {
     name: this.state.name,    
