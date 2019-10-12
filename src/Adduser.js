@@ -27,7 +27,7 @@ class Adduser extends Component {
             headers: {
               'Accept': 'application/json',
               'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': '*'
+              'Access-Control-Allow-Origin': 'https://nodeapi-mongo-react.herokuapp.com/'
             },
            body: JSON.stringify( {
     name: this.state.name,    
