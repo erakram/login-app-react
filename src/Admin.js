@@ -28,7 +28,15 @@ class Admin extends Component {
   componentDidMount() {
     var url = 'https://nodeapi-mongo-react.herokuapp.com/api/v1/show_users';
         console.log(url);
-        fetch(url)
+        fetch(url, {
+          method: 'GET',
+            Origin: 'https://nodeapi-mongo-react.herokuapp.com/',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
+            },
+        })
         .then(response => {
             if (!response.ok) {
                 throw Error('Network request failed.')
@@ -59,8 +67,8 @@ class Admin extends Component {
             Origin: 'https://nodeapi-mongo-react.herokuapp.com/',
             headers: {
               'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            //   'Access-Control-Allow-Origin': '*'
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
             },
           }).then(res => res.json())
           .then((data)=> {
@@ -88,7 +96,8 @@ class Admin extends Component {
             Origin: 'https://nodeapi-mongo-react.herokuapp.com/',
             headers: {
               'Accept': 'application/json',
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
             },
            body: JSON.stringify( {
         name: this.state.name,    
@@ -190,7 +199,7 @@ class Admin extends Component {
         <div className="row">
           <div className="col s12 m12">
             <div className="">
-              <h3 className="center">List of All Users</h3>
+              <h3 className="center">All Users</h3>
               {userList}
             </div>
           </div>
