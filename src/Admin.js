@@ -33,8 +33,8 @@ class Admin extends Component {
             Origin: 'https://nodeapi-mongo-react.herokuapp.com/',
             headers: {
               'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': 'https://nodeapi-mongo-react.herokuapp.com/'
+              'Content-Type': 'application/json'
+              // 'Access-Control-Allow-Origin': 'https://nodeapi-mongo-react.herokuapp.com/'
             },
         })
         .then(response => {
@@ -67,8 +67,8 @@ class Admin extends Component {
             Origin: 'https://nodeapi-mongo-react.herokuapp.com/',
             headers: {
               'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': 'https://nodeapi-mongo-react.herokuapp.com/'
+              'Content-Type': 'application/json'
+              // 'Access-Control-Allow-Origin': 'https://nodeapi-mongo-react.herokuapp.com/'
             },
           }).then(res => res.json())
           .then((data)=> {
@@ -96,8 +96,8 @@ class Admin extends Component {
             Origin: 'https://nodeapi-mongo-react.herokuapp.com/',
             headers: {
               'Accept': 'application/json',
-              'Content-Type': 'application/json',
-              'Access-Control-Allow-Origin': 'https://nodeapi-mongo-react.herokuapp.com/'
+              'Content-Type': 'application/json'
+              // 'Access-Control-Allow-Origin': 'https://nodeapi-mongo-react.herokuapp.com/'
             },
            body: JSON.stringify( {
         name: this.state.name,    
